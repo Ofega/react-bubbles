@@ -6,18 +6,18 @@ const initialColor = {
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors, history }) => {
   const [adding, setAdding] = useState(false);
   const [editing, setEditing] = useState(false);
   const [color, setColor] = useState(initialColor);
 
   const editColor = color => {
-    setEditing(true);
+    setEditing(!editing);
     setColor(color);
   };
 
   const addColor = () => {
-    setAdding(true);
+    setAdding(!adding);
   };
 
   const deleteColor = ({ id }) => {
@@ -75,8 +75,7 @@ const ColorList = ({ colors, updateColors }) => {
         ))}
       </ul>
       {editing && (
-        <form onSubmit={saveEdit}>
-          <legend>edit color</legend>
+        <form className="small" onSubmit={saveEdit}>
           <label>
             color name:
             <input
@@ -105,11 +104,10 @@ const ColorList = ({ colors, updateColors }) => {
         </form>
       )}
 
-      <button type="button" onClick={addColor} >Add a color</button>
+      <button className="add-color" type="button" onClick={addColor} >Add a color</button>
       
       {adding && (
-        <form onSubmit={(e) => saveAddedColor(e, color)}>
-          <legend>Add color</legend>
+        <form className="small" onSubmit={(e) => saveAddedColor(e, color)}>
           <label>
             color name:
             <input
@@ -126,11 +124,11 @@ const ColorList = ({ colors, updateColors }) => {
           </label>
           <div className="button-row">
             <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
+            <button onClick={() => setAdding(false)}>cancel</button>
           </div>
         </form>
       )}
-
+      
       <div className="spacer" />
     </div>
   );

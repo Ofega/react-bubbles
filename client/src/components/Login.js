@@ -32,25 +32,25 @@ const Login = props => {
     }
 
   return (
-    <>
-      <h1>Welcome to the Bubble App!</h1>
+    <div className="login-page">
+        <h1>Welcome to the Bubble App!</h1>
 
-      <Form autoComplete="off">
-        <div className="form-inputs">
-            <label htmlFor="username">Username</label>
-            <input type='text' onChange={handleChange} value={internalState.username} id="username" name='username' placeholder='Username' required/>
-        </div>
+        <Form autoComplete="off">
+            <div className="form-inputs">
+                <label htmlFor="username">Username</label>
+                <input type='text' onChange={handleChange} value={internalState.username} id="username" name='username' placeholder='Username' required/>
+            </div>
 
-        <div className="form-inputs">
-            <label htmlFor="password">Password</label>
-            <input type='password' onChange={handleChange} value={internalState.password} id="password" name='password' placeholder='Password' required/>
-        </div>
+            <div className="form-inputs">
+                <label htmlFor="password">Password</label>
+                <input type='password' onChange={handleChange} value={internalState.password} id="password" name='password' placeholder='Password' required/>
+            </div>
 
-        <button type='submit' onClick={handleFormSubmit}>
-            Login
-        </button>
-      </Form>
-    </>
+            <button type='submit' onClick={handleFormSubmit}>
+                Login
+            </button>
+        </Form>
+    </div>
   );
 };
 
@@ -58,37 +58,14 @@ export default Login;
 
 const Form = styled.form`
     padding: 4rem 2rem;
-    min-height: 350px;
     max-width: 500px;
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-    z-index: 5;
     background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+
     @media (min-width : 768px) {
         padding: 4rem 3rem;
-    }
-    .close-btn {
-        border: 2px solid red;
-    }
-    .form-header {
-        text-align: center;
-        margin-bottom: 4rem;
-        h1 {
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: rgba(0,0,0,.4);
-        }
-        p {
-            margin-top: .5rem;
-            font-size: 3rem;
-            font-weight: 600;
-        }
     }
     .form-inputs {
         display: flex;
@@ -141,44 +118,16 @@ const Form = styled.form`
         -webkit-tap-highlight-color: transparent;
         padding: .5rem 2rem;
         min-height: 40px;
-        min-width: 200px;
+        width: 100%;
+        max-width: 150px
         font-size: 1.5rem; 
-        margin-top: 2rem;
+        margin-top: 1rem;
         &:hover {
             background-color: #63ADB1;
             background-image: none;
             -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
             box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
             color: rgba(255, 255, 255, .8);
-        }
-        &.close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 25px;
-            height: 25px;
-            min-width: auto;
-            margin: 0;
-            border-radius: 100%;
-            padding: 0;
-            min-height: auto;
-            background: transparent;
-            color: red
-            &:hover {
-                background: red;
-                color: #fff
-            }
-        }
-    }
-    .text-link {
-        margin-top: 3rem;
-        font-size: 1.2rem;
-        text-align: center;
-        color: rgba(0,0,0,.4);  
-        a {
-            text-decoration: none;
-            color: #419BA0;
-            font-weight: 600;
         }
     }
 `
