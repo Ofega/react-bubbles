@@ -43,17 +43,18 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
-            <span>
-              <span className="delete" onClick={() => deleteColor(color)}>
-                x
-              </span>{" "}
+          <li key={color.color}>
+            <span className="delete" onClick={() => deleteColor(color)}>
+              x
+            </span>{" "}
+            <div className="color-flx-wrap" onClick={() => editColor(color)}>
               {color.color}
-            </span>
-            <div
-              className="color-box"
-              style={{ backgroundColor: color.code.hex }}
-            />
+
+              <div
+                className="color-box"
+                style={{ backgroundColor: color.code.hex }}
+              />
+            </div>
           </li>
         ))}
       </ul>

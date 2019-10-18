@@ -53,12 +53,22 @@ body,
   color: rgb(216, 87, 87);
 }
 
+.color-flx-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+}
+
 .color-box {
   height: 16px;
   width: 16px;
   border: 1px lightgray solid;
   margin-right: 36px;
 }
+
+
 
 // form {
 //   margin-top: 60px;
