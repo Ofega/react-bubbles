@@ -4,32 +4,32 @@ import styled from 'styled-components';
 
 
 const Login = props => {
-  const initialFormState = {
-    username: '',
-    password: ''
-  }
-  const [ internalState, setInternalState ] = useState(initialFormState);
 
-  const handleChange = (e) => {
-    setInternalState({
-      ...internalState,
-      [e.target.name]: e.target.value
-    })
-  }
+    const initialFormState = { username: '', password: '' }
+    const [ internalState, setInternalState ] = useState(initialFormState);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+    
+    //Handler Functions
+    const handleChange = (e) => {
+        setInternalState({
+            ...internalState,
+            [e.target.name]: e.target.value
+        })
+    }
 
-    axios
-      .post("http://localhost:5000/api/login", internalState)
-      .then(res => { 
-          localStorage.setItem('token', res.data.payload);
-          props.history.push('/');
-      })
-      .catch(err => { 
-          alert(err)
-      }); 
-  }
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        axios
+            .post("http://localhost:5000/api/login", internalState)
+            .then(res => { 
+                localStorage.setItem('token', res.data.payload);
+                props.history.push('/')
+            })
+            .catch(err => { 
+                alert(err)
+            }); 
+    }
 
   return (
     <>
